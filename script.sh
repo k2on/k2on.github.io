@@ -1,7 +1,7 @@
 # Welcome myself!
 name="$(tr '[:lower:]' '[:upper:]' <<< ${USER:0:1})${USER:1}"
 echo ""
-echo "🚀 Welcome $name\!"
+echo "🚀 Welcome $name!"
 echo ""
 
 # ZSH setup

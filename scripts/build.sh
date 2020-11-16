@@ -46,7 +46,9 @@ intro=": ==========================================
 
 # This script contains a large amount of comments so you can understand
 # how it interacts with your system. If you're not interested in the
-# technical details, you can just run the command above."
+# technical details, you can just run the command above.
+
+"
 
 # After source code
 footer="
