@@ -36,13 +36,26 @@
 
 # This script contains a large amount of comments so you can understand
 # how it interacts with your system. If you're not interested in the
-# technical details, you can just run the command above.echo "-- Setting up .zshrc --"
+# technical details, you can just run the command above.# Welcome myself!
+name="$(tr '[:lower:]' '[:upper:]' <<< ${USER:0:1})${USER:1}"
+echo ""
+echo "🚀 Welcome $name\!"
+echo ""
 
+# ZSH setup
+echo "Downloading your ZSH profile"
+
+# Set the download URL
 DOWNLOAD_URL="https://koon.dev/zshrc.sh"
 
+# Download the profile to the .zshrc file
 curl -o "$HOME/.zshrc" -L --progress-bar $DOWNLOAD_URL
 
-echo "-- installed .zshrc"
+echo "ZSH profile set up!"
+
+# Success
+echo ""
+echo "✨ All done!"
 
 exit 0
 
