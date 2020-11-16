@@ -13,6 +13,8 @@ header="#!/usr/bin/env bash
 ## <script src=\"https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-bash.min.js\"></script>
 ## <style>body {color: #272822; background-color: #272822; font-size: 0.8em;} </style>
 "
+
+# Before the source code
 intro=": ==========================================
 :   Introduction
 : ==========================================
@@ -27,7 +29,7 @@ intro=": ==========================================
 : ==========================================
 
 # The behavior of this script can be modified at runtime by passing environmental
-# variables to the `bash` process.
+# variables to the \`bash\` process.
 #
 # For example, passing an argument called arg1 set to true and one called arg2 set
 # to false would look like this.
@@ -44,9 +46,9 @@ intro=": ==========================================
 
 # This script contains a large amount of comments so you can understand
 # how it interacts with your system. If you're not interested in the
-# technical details, you can just run the command above.
+# technical details, you can just run the command above."
 
-"
+# After source code
 footer="
 
 # ------------------------------------------
@@ -63,7 +65,8 @@ footer="
 # while still returning true. This turns these commands into no-ops so
 # when ran as a script, they're totally ignored.
 #"
-# Combine the header and script
+
+# Create the index.html file
 index=$header$intro$script$footer
 # Write the file to the index.html
 echo $index > index.html

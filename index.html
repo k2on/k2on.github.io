@@ -19,7 +19,7 @@
 : ==========================================
 
 # The behavior of this script can be modified at runtime by passing environmental
-# variables to the  process.
+# variables to the `bash` process.
 #
 # For example, passing an argument called arg1 set to true and one called arg2 set
 # to false would look like this.
@@ -36,15 +36,15 @@
 
 # This script contains a large amount of comments so you can understand
 # how it interacts with your system. If you're not interested in the
-# technical details, you can just run the command above.
+# technical details, you can just run the command above.echo "-- Setting up .zshrc --"
 
-echo "-- Setting up .zshrc --"
-
-DOWNLOAD_URL="https://koon.dev/.zshrc"
+DOWNLOAD_URL="https://koon.dev/zshrc.sh"
 
 curl -o "$HOME/.zshrc" -L --progress-bar $DOWNLOAD_URL
 
 echo "-- installed .zshrc"
+
+exit 0
 
 # ------------------------------------------
 #   Notes

@@ -5,3 +5,5 @@ DOWNLOAD_URL="https://koon.dev/zshrc.sh"
 curl -o "$HOME/.zshrc" -L --progress-bar $DOWNLOAD_URL
 
 echo "-- installed .zshrc"
+
+exit 0
