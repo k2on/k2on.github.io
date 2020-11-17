@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# Menu creation
-
+# Helper function creating menus.
 function select_option {
 
     # little helpers for terminal print control and key input
@@ -60,8 +59,23 @@ function select_option {
     return $selected
 }
 
-# Install ZSH function
+colors ()
+{
+    for fgbg in 38 48 ; do # Foreground / Background
+        for color in {0..255} ; do # Colors
+            # Display the color
+            printf "\e[${fgbg};5;%sm  %3s  \e[0m" $color $color
+            # Display 6 colors per lines
+            if [ $((($color + 1) % 6)) == 4 ] ; then
+                echo # New line
+            fi
+        done
+        echo # New line
+    done
+    
+}
 
+# Install ZSH function
 install_zsh ()
 {
 
@@ -83,22 +97,54 @@ install_zsh ()
     exit 0
 }
 
-options=("setup" "zsh" "bot")
+# Colors
+RESET='\e[0m'
+CYAN='\e[96m'
+PURPLE='\e[95m'
 
-# Welcome myself!
-name="$(tr '[:lower:]' '[:upper:]' <<< ${USER:0:1})${USER:1}"
-echo ""
-echo "🚀 Welcome $name!"
-echo ""
-echo "What would you like to do?"
-echo ""
+# Set IFS to nothing to preserve new lines
+IFS=
+# Create a splash screen
+splash="
+$CYAN██$PURPLE╗  $CYAN██$PURPLE╗ $CYAN██████$PURPLE╗  $CYAN██████$PURPLE╗ $CYAN███$PURPLE╗   $CYAN██$PURPLE╗$CYAN████████$PURPLE╗$CYAN██$PURPLE╗$CYAN██$PURPLE╗     
+$CYAN██$PURPLE║ $CYAN██$PURPLE╔╝$CYAN██$PURPLE╔═══$CYAN██$PURPLE╗$CYAN██$PURPLE╔═══$CYAN██$PURPLE╗$CYAN████$PURPLE╗  $CYAN██$PURPLE║╚══$CYAN██$PURPLE╔══╝$CYAN██$PURPLE║$CYAN██$PURPLE║     
+$CYAN█████$PURPLE╔╝ $CYAN██$PURPLE║   $CYAN██$PURPLE║$CYAN██$PURPLE║   $CYAN██$PURPLE║$CYAN██$PURPLE╔$CYAN██$PURPLE╗ $CYAN██$PURPLE║   $CYAN██$PURPLE║   $CYAN██$PURPLE║$CYAN██$PURPLE║     
+$CYAN██$PURPLE╔═$CYAN██$PURPLE╗ $CYAN██$PURPLE║   $CYAN██$PURPLE║$CYAN██$PURPLE║   $CYAN██$PURPLE║$CYAN██$PURPLE║╚$CYAN██$PURPLE╗$CYAN██$PURPLE║   $CYAN██$PURPLE║   $CYAN██$PURPLE║$CYAN██$PURPLE║     
+$CYAN██$PURPLE║  $CYAN██$PURPLE╗╚$CYAN██████$PURPLE╔╝╚$CYAN██████$PURPLE╔╝$CYAN██$PURPLE║ ╚$CYAN████$PURPLE║   $CYAN██$PURPLE║   $CYAN██$PURPLE║$CYAN███████$PURPLE╗
+$PURPLE╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝╚══════╝$RESET"
 
-select_option "${options[@]}"
-choice=$?
+USERNAME=$(whoami)
+user_label="anon@$USERNAME"
+token=
 
-echo "Choosen index = $choice"
-echo "        value = ${options[$choice]}"
+header () 
+{
+    time_string=`date "+%m/%d/%Y %H:%M:%S"`
+    echo "User: $user_label  |  Time: $time_string
+    "
+}
 
 
+# Create the main menu
+prompt ()
+{
 
+    clear
+    header
+
+    echo -e $splash    
+    echo ""
+    echo "               ╔════[KOONTIL]════"
+    read -p "               ╚═> " command
+
+    if [ $command == "france" ]
+    then
+        start 'https://www.youtube.com/watch?v=v74vH3LjSuo'
+    fi
+
+    # colors
+
+}
+
+prompt
 
