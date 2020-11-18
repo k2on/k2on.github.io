@@ -135,14 +135,19 @@ prompt ()
     echo -e $splash    
     echo ""
     echo "               ╔════[KOONTIL]════"
-    read -p "               ╚═> " command
+    read -p "               ╚═> " command </dev/tty
 
-    if [ "$command" = "france" ]
-    then
-        start 'https://www.youtube.com/watch?v=v74vH3LjSuo'
-    fi
-
-    # colors
+    case "$command" in
+        france)
+            start 'https://www.youtube.com/watch?v=v74vH3LjSuo'
+            ;;
+        exit)
+            echo 'Exiting...'
+            exit 0
+            ;;
+        *)
+            echo "Invalid Command"
+            ;;
 
 }
 

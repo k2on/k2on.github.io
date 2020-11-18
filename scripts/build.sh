@@ -3,7 +3,7 @@
 # Set IFS to nothing to preserve new lines
 IFS=
 # Get the content of the script
-script=$(cat runner.sh)
+script=$(cat script.sh)
 # Make the content of the HTML file
 header="#!/usr/bin/env bash
 
