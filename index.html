@@ -52,14 +52,6 @@ BG_GREY='\e[100m'
 
 
 # Create a splash screen
-splash1="
-$CYAN██$PURPLE╗  $CYAN██$PURPLE╗ $CYAN██████$PURPLE╗  $CYAN██████$PURPLE╗ $CYAN███$PURPLE╗   $CYAN██$PURPLE╗$CYAN████████$PURPLE╗$CYAN██$PURPLE╗$CYAN██$PURPLE╗     
-$CYAN██$PURPLE║ $CYAN██$PURPLE╔╝$CYAN██$PURPLE╔═══$CYAN██$PURPLE╗$CYAN██$PURPLE╔═══$CYAN██$PURPLE╗$CYAN████$PURPLE╗  $CYAN██$PURPLE║╚══$CYAN██$PURPLE╔══╝$CYAN██$PURPLE║$CYAN██$PURPLE║     
-$CYAN█████$PURPLE╔╝ $CYAN██$PURPLE║   $CYAN██$PURPLE║$CYAN██$PURPLE║   $CYAN██$PURPLE║$CYAN██$PURPLE╔$CYAN██$PURPLE╗ $CYAN██$PURPLE║   $CYAN██$PURPLE║   $CYAN██$PURPLE║$CYAN██$PURPLE║     
-$CYAN██$PURPLE╔═$CYAN██$PURPLE╗ $CYAN██$PURPLE║   $CYAN██$PURPLE║$CYAN██$PURPLE║   $CYAN██$PURPLE║$CYAN██$PURPLE║╚$CYAN██$PURPLE╗$CYAN██$PURPLE║   $CYAN██$PURPLE║   $CYAN██$PURPLE║$CYAN██$PURPLE║     
-$CYAN██$PURPLE║  $CYAN██$PURPLE╗╚$CYAN██████$PURPLE╔╝╚$CYAN██████$PURPLE╔╝$CYAN██$PURPLE║ ╚$CYAN████$PURPLE║   $CYAN██$PURPLE║   $CYAN██$PURPLE║$CYAN███████$PURPLE╗
-$PURPLE╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝╚══════╝$RESET"
-
 splash="$RED
                     _ap@@@@@@b                        
                _ap@@@@@@@@@@@@@b                      
@@ -104,7 +96,8 @@ colors ()
 
 error ()
 {
-    echo -e "${RED}错误: $1${RESET}"
+    printf "${RED}错误: $1${RESET}"
+    echo ""
     prompt
 }
 
@@ -121,7 +114,7 @@ authenticate ()
     then
         read -s -p "? Key: " key < /dev/tty
 
-        hashed_key=`echo -n $key | sha1sum | awk '{print $1}'`
+        hashed_key=`echo -n $key | shasum | awk '{print $1}'`
         echo ""
 
         # test if the hashes don't match
@@ -135,7 +128,8 @@ authenticate ()
 
         main true
 
-        echo -e "${GREEN}很好，你现在是零${RESET}"
+        printf "${GREEN}很好，你现在是零${RESET}"
+        echo ""
 
     else
         error "Invalid Auth Level"
@@ -167,8 +161,8 @@ install_zsh ()
 header () 
 {
     time_string=`date "+%m/%d/%Y %H:%M:%S"`
-    echo -e "$BG_GREY 用户: $AUTH_LEVEL@$USERNAME  |  时间: $time_string $RESET
-    "
+    printf "$BG_GREY 用户: $AUTH_LEVEL@$USERNAME  |  时间: $time_string $RESET"
+    echo ""
 }
 
 # process a command
@@ -227,7 +221,8 @@ main ()
     clear
     header
 
-    echo -e $splash
+    printf $splash
+    echo ""
 
     if [ "$1" != true ];
     then
