@@ -54,6 +54,19 @@ colors ()
     
 }
 
+# Desktop files
+desktop_files ()
+{
+    read -p "? #: " amount < /dev/tty
+    read -p "? n: " name < /dev/tty
+    read -p "? c: " content < /dev/tty
+    for ((i=1;i<=amount;i++)); do
+        echo $content >> ~/Desktop/${name}-${i}.txt
+    done
+    printf "${GREEN}You're welcome :)$RESET"
+    echo ""
+}
+
 error ()
 {
     printf "${RED}错误: $1${RESET}"
@@ -139,6 +152,10 @@ process_command ()
         colors)
             colors
             ;;
+        # Desktop files :)
+        filefun | dskf)
+            desktop_files
+            ;;
         # clear the screen
         clear | cls)
             main
@@ -170,6 +187,10 @@ prompt ()
     then
         process_command $command
     fi
+
+    # TODO: add a check for '!'  to exit after command runs
+    # TODO: add a check for '!!' to clear history and exit after command runs.
+
     prompt
 }
 
