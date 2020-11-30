@@ -78,5 +78,5 @@ INSTALL_OPTIONS=(
 install_defaults() {
   install $INSTALL_OPTIONS
 }
-
+echo "bruh"
 echo $INSTALL_OPTIONS
