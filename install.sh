@@ -36,6 +36,14 @@ install_oh_my_zsh() {
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
+# github cli
+install_github() {
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+  sudo apt-add-repository https://cli.github.com/packages
+  sudo apt update
+  sudo apt install gh
+}
+
 # kind
 install_kind() {
   echo "Installing Kind"
@@ -51,14 +59,24 @@ install_pfetch() {
   sudo mv ./pfetch /usr/bin/pfetch
 }
 
+install() {
+  update
+}
+
+INSTALL_OPTIONS=(
+    git
+    curl
+    nvm
+    zsh
+    oh_my_zsh
+    github
+    kind
+    pfetch
+)
+
 # install defaults
 install_defaults() {
-  update
-  install_git
-  install_curl
-  install_nvm
-  install_zsh
-  install_oh_my_zsh
-  install_kind
-  install_pfetch
+  install $INSTALL_OPTIONS
 }
+
+echo $INSTALL_OPTIONS
