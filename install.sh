@@ -61,9 +61,9 @@ install_pfetch() {
 
 install() {
   
-  for i in "${1[@]}"
+  for pkg in "$@"
   do
-    echo $i
+    echo $pkg
   done
   
 }
