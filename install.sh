@@ -59,9 +59,9 @@ install_pfetch() {
   sudo mv ./pfetch /usr/bin/pfetch
 }
 
-install($arr) {
+install() {
   
-  for i in "${arr[@]}"
+  for i in "${1[@]}"
   do
     echo $i
   done
