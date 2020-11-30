@@ -61,7 +61,7 @@ install_pfetch() {
 
 install() {
   
-  for pkg in "$@"
+  for pkg;
   do
     echo $pkg
   done
@@ -84,5 +84,5 @@ install_defaults() {
   install $INSTALL_OPTIONS
 }
 
-install $INSTALL_OPTIONS
+install "${INSTALL_OPTIONS[@]}"
 
