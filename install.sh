@@ -59,8 +59,13 @@ install_pfetch() {
   sudo mv ./pfetch /usr/bin/pfetch
 }
 
-install() {
-  update
+install($arr) {
+  
+  for i in "${arr[@]}"
+  do
+    echo $i
+  done
+  
 }
 
 INSTALL_OPTIONS=(
@@ -78,5 +83,6 @@ INSTALL_OPTIONS=(
 install_defaults() {
   install $INSTALL_OPTIONS
 }
-echo "bruh"
-echo $INSTALL_OPTIONS
+
+install $INSTALL_OPTIONS
+
