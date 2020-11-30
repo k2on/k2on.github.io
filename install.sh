@@ -59,11 +59,15 @@ install_pfetch() {
   sudo mv ./pfetch /usr/bin/pfetch
 }
 
+install_test() {
+  echo "Installing Test"
+}
+
 install() {
   
   for pkg;
   do
-    echo $pkg
+    install_$pkg
   done
   
 }
@@ -84,5 +88,5 @@ install_defaults() {
   install $INSTALL_OPTIONS
 }
 
-install "${INSTALL_OPTIONS[@]}"
+install "test"
 
