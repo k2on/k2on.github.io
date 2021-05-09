@@ -1,0 +1,191 @@
+#!/usr/bin/env bash
+
+## <script src="./readability.js"></script>
+## <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+## <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-core.min.js" data-manual></script>
+## <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-bash.min.js"></script>
+## <style>body {color: #272822; background-color: #272822; font-size: 0.8em;} </style>
+: ==========================================
+:   Introduction
+: ==========================================
+
+# Koon's personal remote shell.
+#
+: curl koon.dev | bash
+#
+
+: ==========================================
+:   Advanced Usage
+: ==========================================
+
+# The behavior of this script can be modified at runtime by passing environmental
+# variables to the `bash` process.
+#
+# For example, passing an argument called arg1 set to true and one called arg2 set
+# to false would look like this.
+#
+: curl koon.dev | arg1=true arg2=false bash
+#
+# These arguments are optional, but be aware that explicitly setting them will help
+# ensure consistent behavior if / when defaults are changed.
+#
+
+: ==========================================
+:   Source Code
+: ==========================================
+
+# This script contains a large amount of comments so you can understand
+# how it interacts with your system. If you're not interested in the
+# technical details, you can just run the command above.
+
+#!/usr/bin/env bash
+# Variables
+USER=$(whoami)
+RESET='\e[0m'
+BLACK='\e[30m'
+RED='\e[31m'
+GREEN='\e[32m'
+YELLOW='\e[33m'
+BLUE='\e[34m'
+MAGENTA='\e[35m'
+CYAN='\e[36m'
+GREY='\e[37m'
+DARK_GREY='\e[90m'
+BRIGHT_RED='\e[91m'
+BRIGHT_GREEN='\e[92m'
+BRIGHT_YELLOW='\e[93m'
+BRIGHT_BLUE='\e[94m'
+BRIGHT_PURPLE='\e[95m'
+BRIGHT_CYAN='\e[96m'
+WHITE='\e[97m'
+BG_BLACK='\e[40m'
+BG_RED='\e[41m'
+BG_GREEN='\e[42m'
+BG_YELLOW='\e[43m'
+BG_BLUE='\e[44m'
+BG_MAGENTA='\e[45m'
+BG_CYAN='\e[46m'
+BG_GREY='\e[47m'
+BG_DARK_GREY='\e[100m'
+BG_BRIGHT_RED='\e[101m'
+BG_BRIGHT_GREEN='\e[102m'
+BG_BRIGHT_YELLOW='\e[103m'
+BG_BRIGHT_BLUE='\e[104m'
+BG_BRIGHT_PURPLE='\e[105m'
+BG_BRIGHT_CYAN='\e[106m'
+BG_WHITE='\e[107m'
+
+# The error function.
+error ()
+{
+printf "${RED}ERROR: $1${RESET}"
+echo ""
+}
+
+
+# Show the colors.
+colors ()
+{
+for fgbg in 38 48 ; do # Foreground / Background
+    for color in {0..255} ; do # Colors
+        # Display the color
+        printf "\e[${fgbg};5;%sm  %3s  \e[0m" $color $color
+        # Display 6 colors per lines
+        if [ $((($color + 1) % 6)) == 4 ] ; then
+            echo # New line
+        fi
+    done
+    echo # New line
+done
+}
+
+
+# Process a main command.
+process_main ()
+{
+IFS=' ' read -ra parts <<< "$1"
+case "${parts[0]}" in
+    # Show the colors.
+    colors)
+        colors
+        ;;
+    # Clear the screen.
+    clear | cls | c)
+        main
+        ;;
+    # Exit the CLI.
+    exit | ex | e)
+        clear
+        exit 0
+        ;;
+    # Show all the commands for the main menu.
+    help | ? | h)
+        echo "Showing commands for main menu."
+        echo ""
+        printf "colors   ${CYAN}Show the colors.$RESET
+"
+        printf "clear    ${CYAN}Clear the screen.$RESET
+"
+        printf "exit     ${CYAN}Exit the CLI.$RESET
+"
+        printf "help     ${CYAN}Show all the commands for the main menu.$RESET
+"
+        ;;
+    # Invalid command.
+    *)
+        error "\"${parts[0]}\" is not a valid command."
+        ;;
+esac
+}
+
+
+# Create the main prompt.
+prompt_main ()
+{
+printf "$RED$USER>$RESET"
+read -p "" input < /dev/tty
+if [ "$input" != "" ];
+then
+    process_main $input
+fi
+
+prompt_main
+}
+
+
+# The main menu.
+main ()
+{
+# Set IFS to nothing to preserve new lines
+IFS=
+
+clear
+TIME=`date "+%m/%d/%Y %H:%M:%S"`
+printf "${BG_DARK_GREY}User: $USER | Time: $TIME $RESET"
+echo ""
+
+printf "MYSPLASH"
+echo ""
+
+if [ "$1" != true ];
+then
+    prompt_main
+fi
+}
+
+main
+
+# ------------------------------------------
+#   Notes
+# ------------------------------------------
+#
+# This script contains hidden JavaScript which is used to improve
+# readability in the browser (via syntax highlighting, etc), right-click
+# and "View source" of this page to see the entire bash script!
+#
+# You'll also notice that we use the ":" character in the Introduction
+# which allows our copy/paste commands to be syntax highlighted, but not
+# ran. In bash : is equal to  and true can take infinite arguments
+# while still returning true. This turns these commands into no-ops so
+# when ran as a script, they're totally ignored.
+#
