@@ -204,10 +204,10 @@ safe-buffer@~5.2.0:
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
   integrity sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==
 
-shell-builder@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/shell-builder/-/shell-builder-1.0.1.tgz#b6cf76fe0a002340205ad3c1cc862b88a3f37350"
-  integrity sha512-PcAQH8AOxoo+QuGVe64E5LwQ0hmhHgX+V9nrnznU8Kxj/RTp2thNR81GACh+PFta8rOVb5GlftcBoJWGYeHxZw==
+shell-builder@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/shell-builder/-/shell-builder-1.0.2.tgz#4934497b91ab93b09744bda7f827c893c0e06e33"
+  integrity sha512-Tpdbh+zoTXtzliduSwLEPTCjERlD6//W0bO9vImtp2srOcHpvnZRV+5itpqffvkuoSFYTii1NH65LOBZq2nR2Q==
   dependencies:
     ajv "^8.2.0"
     asciimo "^0.3.1"
