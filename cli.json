@@ -12,6 +12,11 @@
                 "colors": {
                     "description": "Show the colors.",
                     "script": "colors"
+                },
+                "hello": {
+                    "description": "Say hi",
+                    "command": "echo \"hi andrew\"",
+                    "aliases": ["hi"]
                 }
             }
         }
