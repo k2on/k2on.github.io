@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## <script src="koon.dev/readability_bash.js"></script>
+## <script src="https://koon.dev/readability_bash.js"></script>
 ## <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism-okaidia.min.css" rel="stylesheet" />
 ## <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-core.min.js" data-manual></script>
 ## <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-bash.min.js"></script>
@@ -83,7 +83,7 @@ echo ""
 }
 
 
-# Show console  colors.
+# Show console colors.
 colors ()
 {
 for fgbg in 38 48 ; do # Foreground / Background
@@ -105,7 +105,7 @@ process_main ()
 {
 IFS=' ' read -ra parts <<< "$1"
 case "${parts[0]}" in
-    # Show console  colors.
+    # Show console colors.
     colors)
         colors
         ;;
@@ -122,7 +122,7 @@ case "${parts[0]}" in
     help | ? | h)
         echo "Showing commands for main menu."
         echo ""
-        printf "colors   ${CYAN}Show console  colors.$RESET
+        printf "colors   ${CYAN}Show console colors.$RESET
 "
         printf "clear    ${CYAN}Clear the screen.$RESET
 "
