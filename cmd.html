@@ -1,9 +1,9 @@
 @echo off
 
-REM <script src="./readability_cmd.js"></script>
+REM <script src="koon.dev/readability_batch.js"></script>
 REM <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism-okaidia.min.css" rel="stylesheet" />
 REM <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-core.min.js" data-manual></script>
-REM <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-bash.min.js"></script>
+REM <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-batch.min.js"></script>
 REM <style>body {color: #272822; background-color: #272822; font-size: 0.8em;} </style>
 : ==========================================
 :   Introduction
@@ -19,7 +19,7 @@ REM <style>body {color: #272822; background-color: #272822; font-size: 0.8em;} <
 : ==========================================
 
 : The behavior of this script can be modified at runtime by passing environmental
-: variables to the `cmd` process.
+: variables to the `batch` process.
 :
 : For example, passing an argument called arg1 set to true and one called arg2 set
 : to false would look like this.
@@ -48,11 +48,11 @@ pause
 :
 : This script contains hidden JavaScript which is used to improve
 : readability in the browser (via syntax highlighting, etc), right-click
-: and "View source" of this page to see the entire cmd script!
+: and "View source" of this page to see the entire batch script!
 :
 : You'll also notice that we use the ":" character in the Introduction
 : which allows our copy/paste commands to be syntax highlighted, but not
-: ran. In cmd : is equal to  and true can take infinite arguments
+: ran. In batch : is equal to  and true can take infinite arguments
 : while still returning true. This turns these commands into no-ops so
 : when ran as a script, they're totally ignored.
 :
