@@ -13,7 +13,7 @@
             "prefix": "$RED$USER>$RESET",
             "commands": {
                 "colors": {
-                    "description": "Show the console's colors.",
+                    "description": "Show console colors.",
                     "script": "colors"
                 }
             }
