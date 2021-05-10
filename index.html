@@ -109,10 +109,6 @@ case "${parts[0]}" in
     colors)
         colors
         ;;
-    # Say hi
-    hello | hi)
-        echo "hi andrew"
-        ;;
     # Clear the screen.
     clear | cls | c)
         main
@@ -127,8 +123,6 @@ case "${parts[0]}" in
         echo "Showing commands for main menu."
         echo ""
         printf "colors   ${CYAN}Show the colors.$RESET
-"
-        printf "hello    ${CYAN}Say hi$RESET
 "
         printf "clear    ${CYAN}Clear the screen.$RESET
 "
