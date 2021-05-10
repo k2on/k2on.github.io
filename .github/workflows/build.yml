@@ -17,10 +17,8 @@ jobs:
               with:
                   node-version: 12
                   registry-url: https://registry.npmjs.org/
-            - name: Yarn Install
-              run: yarn install
             - name: Build
-              run: yarn build
+              run: npx shell-builder
             - name: Deploy
               uses: JamesIves/github-pages-deploy-action@3.7.1
               with:
