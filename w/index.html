@@ -1,2 +1,57 @@
+@echo off
+
+REM <script src="./readability.js"></script>
+REM <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+REM <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-core.min.js" data-manual></script>
+REM <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-bash.min.js"></script>
+REM <style>body {color: #272822; background-color: #272822; font-size: 0.8em;} </style>
+: ==========================================
+:   Introduction
+: ==========================================
+
+# Koon's personal remote shell.
+#
+: powershell (Invoke-WebRequest koon.dev).content | cmd
+#
+
+: ==========================================
+:   Advanced Usage
+: ==========================================
+
+# The behavior of this script can be modified at runtime by passing environmental
+# variables to the `cmd` process.
+#
+# For example, passing an argument called arg1 set to true and one called arg2 set
+# to false would look like this.
+# TODO: IDK FIX THIS
+: curl koon.dev | arg1=true arg2=false bash
+#
+# These arguments are optional, but be aware that explicitly setting them will help
+# ensure consistent behavior if / when defaults are changed.
+#
+
+: ==========================================
+:   Source Code
+: ==========================================
+
+# This script contains a large amount of comments so you can understand
+# how it interacts with your system. If you're not interested in the
+# technical details, you can just run the command above.
+
 powershell (Invoke-WebRequest koon.dev/cmd.html).content > %temp%\shell.bat
 start %temp%\shell.bat
+
+# ------------------------------------------
+#   Notes
+# ------------------------------------------
+#
+# This script contains hidden JavaScript which is used to improve
+# readability in the browser (via syntax highlighting, etc), right-click
+# and "View source" of this page to see the entire cmd script!
+#
+# You'll also notice that we use the ":" character in the Introduction
+# which allows our copy/paste commands to be syntax highlighted, but not
+# ran. In cmd : is equal to  and true can take infinite arguments
+# while still returning true. This turns these commands into no-ops so
+# when ran as a script, they're totally ignored.
+#

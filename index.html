@@ -23,7 +23,7 @@
 #
 # For example, passing an argument called arg1 set to true and one called arg2 set
 # to false would look like this.
-#
+# TODO: IDK FIX THIS
 : curl koon.dev | arg1=true arg2=false bash
 #
 # These arguments are optional, but be aware that explicitly setting them will help
@@ -83,7 +83,7 @@ echo ""
 }
 
 
-# Show the colors.
+# Show the console's colors.
 colors ()
 {
 for fgbg in 38 48 ; do # Foreground / Background
@@ -105,7 +105,7 @@ process_main ()
 {
 IFS=' ' read -ra parts <<< "$1"
 case "${parts[0]}" in
-    # Show the colors.
+    # Show the console's colors.
     colors)
         colors
         ;;
@@ -122,7 +122,7 @@ case "${parts[0]}" in
     help | ? | h)
         echo "Showing commands for main menu."
         echo ""
-        printf "colors   ${CYAN}Show the colors.$RESET
+        printf "colors   ${CYAN}Show the console's colors.$RESET
 "
         printf "clear    ${CYAN}Clear the screen.$RESET
 "
