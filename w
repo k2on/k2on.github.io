@@ -1,7 +1,7 @@
 @echo off
 
-echo hii
+set /p c=_ 
 
-title sdfsd
+echo %c%
 
 pause
