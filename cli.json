@@ -5,7 +5,10 @@
     "uri": "koon.dev",
     "menus": {
         "main": {
-            "splash": "MYSPLASH",
+            "splash": {
+                "text": "KOON",
+                "font": "isometric1"
+            },
             "header": "User: $USER | Time: $TIME",
             "prefix": "$RED$USER>$RESET",
             "commands": {
