@@ -7,7 +7,8 @@
         "main": {
             "splash": {
                 "text": "KOON",
-                "font": "Isometric1"
+                "font": "Isometric1",
+                "color": "RED"
             },
             "header": "User: $USER | Time: $TIME",
             "prefix": "$RED$USER>$RESET",
