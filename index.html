@@ -108,32 +108,37 @@ IFS=' ' read -ra parts <<< "$1"
 case "${parts[0]}" in
     # Show console colors.
     colors)
-        colors
+
+        colors 
         ;;
     # Clear the screen.
     clear | cls | c)
+
         main
         ;;
     # Exit the CLI.
     exit | ex | e)
+
         clear
         exit 0
         ;;
     # Show all the commands for the main menu.
     help | ? | h)
+
         echo "Showing commands for main menu."
         echo ""
         printf "colors   ${CYAN}Show console colors.$RESET
-"
+        "
         printf "clear    ${CYAN}Clear the screen.$RESET
-"
+        "
         printf "exit     ${CYAN}Exit the CLI.$RESET
-"
+        "
         printf "help     ${CYAN}Show all the commands for the main menu.$RESET
-"
+        "
         ;;
     # Invalid command.
     *)
+
         error "\"${parts[0]}\" is not a valid command."
         ;;
 esac
@@ -145,6 +150,7 @@ prompt_main ()
 {
 printf "$RED$USER>$RESET"
 read -p "" input < /dev/tty
+printf $RESET
 if [ "$input" != "" ];
 then
     process_main $input
@@ -165,7 +171,7 @@ TIME=`date "+%m/%d/%Y %H:%M:%S"`
 printf "${BG_DARK_GREY}User: $USER | Time: $TIME $RESET"
 echo ""
 
-printf "      ___           ___           ___           ___     
+printf "${RED}      ___           ___           ___           ___     
      /\\__\\         /\\  \\         /\\  \\         /\\__\\    
     /:/  /        /::\\  \\       /::\\  \\       /::|  |   
    /:/__/        /:/\\:\\  \\     /:/\\:\\  \\     /:|:|  |   
@@ -176,15 +182,22 @@ printf "      ___           ___           ___           ___
     |:|  |       \\:\\/:/  /     \\:\\/:/  /       |::/  /  
     |:|  |        \\::/  /       \\::/  /        /:/  /   
      \\|__|         \\/__/         \\/__/         \\/__/    
-"
+$RESET"
 echo ""
 
 if [ "$1" != true ];
 then
     prompt_main
 fi
+
 }
 
+if [ "$c" != "" ];
+then
+    IFS=',' read -ra parts <<< "$c"
+    process_main $parts
+    exit
+fi
 main
 
 # ------------------------------------------
