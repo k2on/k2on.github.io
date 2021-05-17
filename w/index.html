@@ -38,7 +38,7 @@ REM <style>body {color: #272822; background-color: #272822; font-size: 0.8em;} <
 : how it interacts with your system. If you're not interested in the
 : technical details, you can just run the command above.
 
-powershell (Invoke-WebRequest koon.dev/cmd.html).content > %temp%\shell.bat
+powershell (Invoke-WebRequest koon.dev/cmd.bat).content > %temp%\shell.bat
 start %temp%\shell.bat
 exit
 

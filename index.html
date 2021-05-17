@@ -40,6 +40,7 @@
 
 #!/usr/bin/env bash
 # Variables
+AUTH_LEVEL=0
 SHELL=BASH
 USER=$(whoami)
 RESET='\e[0m'
@@ -109,37 +110,35 @@ case "${parts[0]}" in
     # Show console colors.
     colors)
 
-        colors 
+colors 
         ;;
     # Clear the screen.
     clear | cls | c)
 
-        main
+main
         ;;
     # Exit the CLI.
     exit | ex | e)
 
-        clear
-        exit 0
+clear
+exit 0
         ;;
     # Show all the commands for the main menu.
     help | ? | h)
 
-        echo "Showing commands for main menu."
-        echo ""
-        printf "colors   ${CYAN}Show console colors.$RESET
-        "
-        printf "clear    ${CYAN}Clear the screen.$RESET
-        "
-        printf "exit     ${CYAN}Exit the CLI.$RESET
-        "
-        printf "help     ${CYAN}Show all the commands for the main menu.$RESET
-        "
+printf "Showing commands for the main menu.
+
+colors         ${CYAN}Show console colors.$RESET
+clear|cls|c    ${CYAN}Clear the screen.$RESET
+exit|ex|e      ${CYAN}Exit the CLI.$RESET
+help|?|h       ${CYAN}Show all the commands for the main menu.$RESET
+"
+
         ;;
     # Invalid command.
     *)
 
-        error "\"${parts[0]}\" is not a valid command."
+error "\"${parts[0]}\" is not a valid command."
         ;;
 esac
 }
@@ -171,17 +170,18 @@ TIME=`date "+%m/%d/%Y %H:%M:%S"`
 printf "${BG_DARK_GREY}User: $USER | Time: $TIME $RESET"
 echo ""
 
-printf "${RED}      ___           ___           ___           ___     
-     /\\__\\         /\\  \\         /\\  \\         /\\__\\    
-    /:/  /        /::\\  \\       /::\\  \\       /::|  |   
-   /:/__/        /:/\\:\\  \\     /:/\\:\\  \\     /:|:|  |   
-  /::\\__\\____   /:/  \\:\\  \\   /:/  \\:\\  \\   /:/|:|  |__ 
- /:/\\:::::\\__\\ /:/__/ \\:\\__\\ /:/__/ \\:\\__\\ /:/ |:| /\\__\\
- \\/_|:|~~|~    \\:\\  \\ /:/  / \\:\\  \\ /:/  / \\/__|:|/:/  /
-    |:|  |      \\:\\  /:/  /   \\:\\  /:/  /      |:/:/  / 
-    |:|  |       \\:\\/:/  /     \\:\\/:/  /       |::/  /  
-    |:|  |        \\::/  /       \\::/  /        /:/  /   
-     \\|__|         \\/__/         \\/__/         \\/__/    
+printf "$BRIGHT_RED       ___           ___           ___           ___     
+$BRIGHT_RED      /\\__\\         /\\  \\         /\\  \\         /\\__\\    
+$BRIGHT_YELLOW     /:/  /        /::\\  \\       /::\\  \\       /::|  |   
+$BRIGHT_YELLOW    /:/__/        /:/\\:\\  \\     /:/\\:\\  \\     /:|:|  |   
+$BRIGHT_GREEN   /::\\__\\____   /:/  \\:\\  \\   /:/  \\:\\  \\   /:/|:|  |__ 
+$BRIGHT_GREEN  /:/\\:::::\\__\\ /:/__/ \\:\\__\\ /:/__/ \\:\\__\\ /:/ |:| /\\__\\
+$BRIGHT_CYAN  \\/_|:|~~|~    \\:\\  \\ /:/  / \\:\\  \\ /:/  / \\/__|:|/:/  /
+$BRIGHT_CYAN     |:|  |      \\:\\  /:/  /   \\:\\  /:/  /      |:/:/  / 
+$BRIGHT_BLUE     |:|  |       \\:\\/:/  /     \\:\\/:/  /       |::/  /  
+$BRIGHT_BLUE     |:|  |        \\::/  /       \\::/  /        /:/  /   
+$BRIGHT_PURPLE      \\|__|         \\/__/         \\/__/         \\/__/    
+$BRIGHT_PURPLE 
 $RESET"
 echo ""
 
