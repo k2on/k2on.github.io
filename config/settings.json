@@ -1,0 +1,17 @@
+{
+    "$schema": "../schemas/settings.json",
+    "applications": {
+        "System Preferences": {
+            "tabs": {
+                "General": {
+                    "options": {
+                        "Default Web Browser": {
+                            "type": "text",
+                            "value": "Google Chrome.app"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/k2on/mac-settings-to-txt/main/schema.json",
+    "title": "MacOS Settings Instructions",
+    "description": "Describe MacOS Settings Instructions in JSON.",
+    "type": "object",
+    "definitions": {
+        "option": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "emum": ["checkbox", "number", "slider", "text"]
+                },
+                "value": {
+                    "type": ["number", "boolean", "string"]
+                }
+            },
+            "additionalProperties": false,
+            "required": ["type", "value"]
+        },
+        "tab": {
+            "type": "object",
+            "properties": {
+                "options": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/option"
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "required": ["options"]
+        },
+        "application": {
+            "type": "object",
+            "properties": {
+                "tabs": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/tab"
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "required": ["tabs"]
+        }
+    },
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "applications": {
+            "title": "Applications",
+            "type": "object",
+            "additionalProperties": {
+                "$ref": "#/definitions/application"
+            }
+        }
+    },
+    "additionalProperties": false,
+    "required": ["applications"]
+}

@@ -1,0 +1,39 @@
+{
+    "name": "koontil",
+    "version": "1.0.0",
+    "description": "Koon's remote shell.",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "license": "MIT",
+    "private": false,
+    "prettier": "@nix2/prettier-config",
+    "scripts": {
+        "format": "prettier --write ./src/**",
+        "test-format": "prettier --check ./src/**",
+        "test": "mocha -r ts-node/register tests/**",
+        "lint": "eslint src/**",
+        "mk-docs": "typedoc --name \"Documentation\" && touch ./docs/.nojekyll",
+        "prepublish": "tsc",
+        "generate-settings-schema": "ts-node scripts/generateSettingsSchema.ts",
+        "build": "ts-node scripts/build/index.ts"
+    },
+    "devDependencies": {
+        "@nix2/prettier-config": "^1.0.2",
+        "@types/mocha": "8.0.4",
+        "@types/node": "14.14.10",
+        "@typescript-eslint/eslint-plugin": "4.9.0",
+        "@typescript-eslint/parser": "4.9.0",
+        "eslint": "7.14.0",
+        "eslint-plugin-jsdoc": "30.7.8",
+        "json-schema-to-typescript": "^10.1.4",
+        "mocha": "8.2.1",
+        "ora": "^5.4.0",
+        "prettier": "2.1.2",
+        "ts-node": "9.1.0",
+        "typedoc": "0.19.2",
+        "typescript": "4.0.5"
+    },
+    "files": [
+        "dist"
+    ]
+}
