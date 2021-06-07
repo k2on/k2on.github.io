@@ -1,0 +1,25 @@
+{
+    "$schema": "https://raw.githubusercontent.com/k2on/remote-cli/main/schema.json",
+    "title": "KOONTIL",
+    "description": "Koon's personal remote shell.",
+    "uri": "koon.dev",
+    "menus": {
+        "main": {
+            "splash": {
+                "text": "KOON",
+                "font": "Isometric1",
+                "color": "RAINBOW"
+            },
+            "header": "User: $USER | Time: $TIME",
+            "prefix": "$RED$USER>$RESET",
+            "commands": {
+                "colors": {
+                    "description": "Show console colors.",
+                    "script": "colors"
+                }
+            }
+        }
+    },
+    "mainMenu": "main",
+    "command": "koon"
+}

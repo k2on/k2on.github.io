@@ -124,8 +124,7 @@ dist
 # End of https://www.toptal.com/developers/gitignore/api/node,vscode
 
 # Ignore generated files.
-cli.json
-
+# Generated Out
 out/
 
 generatedSchemaInterface.ts
