@@ -85,6 +85,32 @@ echo ""
 }
 
 
+# Install the shell locally.
+install ()
+{
+
+
+# Move the shell command to the local binaries.
+curl -sL koon.dev > /usr/local/bin/koon
+# Make the script executible
+chmod +x /usr/local/bin/koon
+
+printf "${GREEN}Installed Latest Version${RESET}
+"
+
+}
+
+
+if [ -f "/usr/local/bin/koon" ]; then
+    echo "Checking for updates..."
+    curl koon.dev -sL > /tmp/newestCLI
+    if !(cmp -s "/tmp/newestCLI" "/usr/local/bin/koon"); then
+        printf "${BLUE}Updating to latest version... $RESET
+"
+        install
+    fi
+fi
+
 # Show console colors.
 colors ()
 {
@@ -102,6 +128,23 @@ done
 }
 
 
+# Push changes from dotfiles repo
+dtpush ()
+{
+echo "Here are the changes"
+
+/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME status
+
+sleep 2
+/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add .
+/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m "Koontil Push"
+/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push
+
+
+
+}
+
+
 # Process a main command.
 process_main ()
 {
@@ -111,6 +154,26 @@ case "${parts[0]}" in
     colors)
 
 colors 
+        ;;
+    # Setup a new computer.
+    setup)
+
+error "The 'setup' command is not supported for Unix."
+        ;;
+    # Sync apps with Brew bundle
+    appsync)
+
+brew bundle install --file=.config/koon/Brewfile
+        ;;
+    # Pull changes from dotfiles repo
+    dtpull)
+
+/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME pull
+        ;;
+    # Push changes from dotfiles repo
+    dtpush)
+
+dtpush 
         ;;
     # Clear the screen.
     clear | cls | c)
@@ -129,11 +192,20 @@ exit 0
 printf "Showing commands for the main menu.
 
 colors         ${CYAN}Show console colors.$RESET
+appsync        ${CYAN}Sync apps with Brew bundle$RESET
+dtpull         ${CYAN}Pull changes from dotfiles repo$RESET
+dtpush         ${CYAN}Push changes from dotfiles repo$RESET
 clear|cls|c    ${CYAN}Clear the screen.$RESET
 exit|ex|e      ${CYAN}Exit the CLI.$RESET
 help|?|h       ${CYAN}Show all the commands for the main menu.$RESET
+install        ${CYAN}Install the command locally.$RESET
 "
 
+        ;;
+    # Install the command locally.
+    install)
+
+install
         ;;
     # Invalid command.
     *)

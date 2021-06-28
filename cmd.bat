@@ -64,6 +64,50 @@ if "%1" == "colors" (
 
     colors
 )
+: Setup a new computer.
+
+if "%1" == "setup" (
+    set valid_command=1
+
+
+    set errMsg=The 'setup' command is not supported for Windows.
+    set func=error
+        call :func_error "The 'setup' command is not supported for Windows."
+    
+)
+: Sync apps with Brew bundle
+
+if "%1" == "appsync" (
+    set valid_command=1
+
+
+    set errMsg=The 'appsync' command is not supported for Windows.
+    set func=error
+        call :func_error "The 'appsync' command is not supported for Windows."
+    
+)
+: Pull changes from dotfiles repo
+
+if "%1" == "dtpull" (
+    set valid_command=1
+
+
+    set errMsg=The 'dtpull' command is not supported for Windows.
+    set func=error
+        call :func_error "The 'dtpull' command is not supported for Windows."
+    
+)
+: Push changes from dotfiles repo
+
+if "%1" == "dtpush" (
+    set valid_command=1
+
+
+    set errMsg=The 'dtpush' command is not supported for Windows.
+    set func=error
+        call :func_error "The 'dtpush' command is not supported for Windows."
+    
+)
 : Authenticate to an access level.
 
 if "%1" == "auth" (
