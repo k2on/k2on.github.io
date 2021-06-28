@@ -16,6 +16,22 @@
                 "colors": {
                     "description": "Show console colors.",
                     "script": "colors"
+                },
+                "setup": {
+                    "description": "Setup a new computer.",
+                    "script": "setup"
+                },
+                "appsync": {
+                    "description": "Sync apps with Brew bundle",
+                    "bashCommand": "brew bundle install --file=.config/koon/Brewfile"
+                },
+                "dtpull": {
+                    "description": "Pull changes from dotfiles repo",
+                    "bashCommand": "/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME pull"
+                },
+                "dtpush": {
+                    "description": "Push changes from dotfiles repo",
+                    "script": "dtpush"
                 }
             }
         }

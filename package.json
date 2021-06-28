@@ -15,7 +15,9 @@
         "mk-docs": "typedoc --name \"Documentation\" && touch ./docs/.nojekyll",
         "prepublish": "tsc",
         "generate-settings-schema": "ts-node scripts/generateSettingsSchema.ts",
-        "build": "ts-node scripts/build/index.ts"
+        "build-funcs": "ts-node scripts/build/index.ts",
+        "build-shell": "shell-builder",
+        "build": "yarn build-funcs & yarn build-shell"
     },
     "devDependencies": {
         "@nix2/prettier-config": "^1.0.2",
@@ -35,5 +37,8 @@
     },
     "files": [
         "dist"
-    ]
+    ],
+    "dependencies": {
+        "shell-builder": "^1.0.14"
+    }
 }

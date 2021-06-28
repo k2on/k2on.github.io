@@ -127,4 +127,6 @@ dist
 # Generated Out
 out/
 
+funcs/setup.sh
+
 generatedSchemaInterface.ts

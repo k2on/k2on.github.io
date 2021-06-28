@@ -1,3 +1,8 @@
-import { getSettingsInstructions } from './settings';
+import { buildSetup } from './buildSetup';
+import { writeFileSync } from 'fs';
 
-console.log(getSettingsInstructions());
+const build = () => {
+    writeFileSync('funcs/setup.sh', buildSetup());
+};
+
+build();
