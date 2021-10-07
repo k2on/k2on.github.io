@@ -36,7 +36,8 @@
                 "peen": {
                     "description": "Show a peen.",
                     "aliases": ["penis"],
-                    "script": "peen"
+                    "script": "peen",
+                    "visibility": false
                 }
             }
         }
