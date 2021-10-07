@@ -32,6 +32,11 @@
                 "dtpush": {
                     "description": "Push changes from dotfiles repo",
                     "script": "dtpush"
+                },
+                "peen": {
+                    "description": "Show a peen.",
+                    "aliases": ["penis"],
+                    "script": "peen"
                 }
             }
         }
