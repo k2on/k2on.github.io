@@ -108,6 +108,20 @@ if "%1" == "dtpush" (
         call :func_error "The 'dtpush' command is not supported for Windows."
     
 )
+: Show a peen.
+set is_command_peen=0
+if "%1" == "peen" set is_command_peen=1
+if "%1" == "penis" set is_command_peen=1
+
+if "%is_command_peen%" == "1" (
+    set valid_command=1
+
+
+    set errMsg=The 'peen' command is not supported for Windows.
+    set func=error
+        call :func_error "The 'peen' command is not supported for Windows."
+    
+)
 : Authenticate to an access level.
 
 if "%1" == "auth" (
