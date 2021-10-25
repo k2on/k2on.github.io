@@ -92,6 +92,8 @@ install ()
 
 # Move the shell command to the local binaries.
 curl -sL koon.dev > /usr/local/bin/koon
+# Add the update logic
+sed -i '' 's/# UPDATE_CHECK/\necho Checking for updates...\n\ncurl koon.dev -sL > \/tmp\/newestCLI\n\nif !(cmp -s "\/tmp\/newestCLI" "\/usr\/local\/bin\/koon"); then\nprintf ${BLUE}Updating to latest version... $RESET\ninstall\nfi\n\nsleep 10\n\n/g' /usr/local/bin/koon
 # Make the script executible
 chmod +x /usr/local/bin/koon
 
@@ -101,15 +103,7 @@ printf "${GREEN}Installed Latest Version${RESET}
 }
 
 
-if [ -f "/usr/local/bin/koon" ]; then
-    echo "Checking for updates..."
-    curl koon.dev -sL > /tmp/newestCLI
-    if !(cmp -s "/tmp/newestCLI" "/usr/local/bin/koon"); then
-        printf "${BLUE}Updating to latest version... $RESET
-"
-        install
-    fi
-fi
+# UPDATE_CHECK
 
 # Show console colors.
 colors ()
@@ -277,18 +271,14 @@ TIME=`date "+%m/%d/%Y %H:%M:%S"`
 printf "${BG_DARK_GREY}User: $USER | Time: $TIME $RESET"
 echo ""
 
-printf "$BRIGHT_RED       ___           ___           ___           ___     
-$BRIGHT_RED      /\\__\\         /\\  \\         /\\  \\         /\\__\\    
-$BRIGHT_YELLOW     /:/  /        /::\\  \\       /::\\  \\       /::|  |   
-$BRIGHT_YELLOW    /:/__/        /:/\\:\\  \\     /:/\\:\\  \\     /:|:|  |   
-$BRIGHT_GREEN   /::\\__\\____   /:/  \\:\\  \\   /:/  \\:\\  \\   /:/|:|  |__ 
-$BRIGHT_GREEN  /:/\\:::::\\__\\ /:/__/ \\:\\__\\ /:/__/ \\:\\__\\ /:/ |:| /\\__\\
-$BRIGHT_CYAN  \\/_|:|~~|~    \\:\\  \\ /:/  / \\:\\  \\ /:/  / \\/__|:|/:/  /
-$BRIGHT_CYAN     |:|  |      \\:\\  /:/  /   \\:\\  /:/  /      |:/:/  / 
-$BRIGHT_BLUE     |:|  |       \\:\\/:/  /     \\:\\/:/  /       |::/  /  
-$BRIGHT_BLUE     |:|  |        \\::/  /       \\::/  /        /:/  /   
-$BRIGHT_PURPLE      \\|__|         \\/__/         \\/__/         \\/__/    
-$BRIGHT_PURPLE 
+printf "$BRIGHT_RED ######    ######    ##################    ##################    #####        #####
+$BRIGHT_YELLOW ######   ######     ##################    ##################    ########     #####
+$BRIGHT_GREEN ######  ######      ##################    #####        #####    ##########   #####
+$BRIGHT_CYAN ############                              #####        #####    ############ #####
+$BRIGHT_BLUE ############                              #####        #####    ##### ############
+$BRIGHT_PURPLE ######  ######      ##################    #####        #####    #####   ##########
+$BRIGHT_PURPLE ######   ######     ##################    ##################    #####      #######
+$BRIGHT_PURPLE ######    ######    ##################    ##################    #####        #####
 $RESET"
 echo ""
 

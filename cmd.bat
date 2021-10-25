@@ -242,18 +242,14 @@ cls
 echo %BG_DARK_GREY%User: %USER% ^| Time: %TIME%%RESET%
 echo.
 
-echo %BRIGHT_RED%       ___           ___           ___           ___     
-echo %BRIGHT_RED%      /\__\         /\  \         /\  \         /\__\    
-echo %BRIGHT_YELLOW%     /:/  /        /::\  \       /::\  \       /::^|  ^|   
-echo %BRIGHT_YELLOW%    /:/__/        /:/\:\  \     /:/\:\  \     /:^|:^|  ^|   
-echo %BRIGHT_GREEN%   /::\__\____   /:/  \:\  \   /:/  \:\  \   /:/^|:^|  ^|__ 
-echo %BRIGHT_GREEN%  /:/\:::::\__\ /:/__/ \:\__\ /:/__/ \:\__\ /:/ ^|:^| /\__\
-echo %BRIGHT_CYAN%  \/_^|:^|~~^|~    \:\  \ /:/  / \:\  \ /:/  / \/__^|:^|/:/  /
-echo %BRIGHT_CYAN%     ^|:^|  ^|      \:\  /:/  /   \:\  /:/  /      ^|:/:/  / 
-echo %BRIGHT_BLUE%     ^|:^|  ^|       \:\/:/  /     \:\/:/  /       ^|::/  /  
-echo %BRIGHT_BLUE%     ^|:^|  ^|        \::/  /       \::/  /        /:/  /   
-echo %BRIGHT_PURPLE%      \^|__^|         \/__/         \/__/         \/__/    
-echo %BRIGHT_PURPLE% 
+echo %BRIGHT_RED% ######    ######    ##################    ##################    #####        #####
+echo %BRIGHT_YELLOW% ######   ######     ##################    ##################    ########     #####
+echo %BRIGHT_GREEN% ######  ######      ##################    #####        #####    ##########   #####
+echo %BRIGHT_CYAN% ############                              #####        #####    ############ #####
+echo %BRIGHT_BLUE% ############                              #####        #####    ##### ############
+echo %BRIGHT_PURPLE% ######  ######      ##################    #####        #####    #####   ##########
+echo %BRIGHT_PURPLE% ######   ######     ##################    ##################    #####      #######
+echo %BRIGHT_PURPLE% ######    ######    ##################    ##################    #####        #####
 echo %RESET%
 
 set func=prompt_main
