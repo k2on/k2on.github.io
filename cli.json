@@ -6,8 +6,7 @@
     "menus": {
         "main": {
             "splash": {
-                "text": "KOON",
-                "font": "Isometric1",
+                "path": "k2on.txt",
                 "color": "RAINBOW"
             },
             "header": "User: $USER | Time: $TIME",

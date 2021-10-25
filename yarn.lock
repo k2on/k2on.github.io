@@ -1678,10 +1678,10 @@ shebang-regex@^3.0.0:
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
-shell-builder@^1.0.14:
-  version "1.0.14"
-  resolved "https://registry.yarnpkg.com/shell-builder/-/shell-builder-1.0.14.tgz#f3091f79806bd707ed58db2658d73956a4ad5b93"
-  integrity sha512-2GATrlpEl8I3jTQT6fBcWbny0TO5sjSY+ZNf+wGuSDltIu+M2Pex2u09uOH9yz9DfQZH0ZBTSRurBQt/N5EaMw==
+shell-builder@^1.0.15:
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/shell-builder/-/shell-builder-1.0.15.tgz#6e08645f1259c468159fa2f062a0ad3202f5bc0c"
+  integrity sha512-yGo2lebEaImZhTH0CyTloQ3wQG5gLMKgJlLkVuu7LNU6AEZK4nOBq351WHu0viS+qcpMFSKBWcoHUeRj+6aWNw==
   dependencies:
     ajv "^8.2.0"
     asciimo "^0.3.1"

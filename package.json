@@ -39,6 +39,6 @@
         "dist"
     ],
     "dependencies": {
-        "shell-builder": "^1.0.14"
+        "shell-builder": "^1.0.15"
     }
 }
