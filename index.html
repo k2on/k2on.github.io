@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## <script src="https://koon.dev/readability_bash.js"></script>
+## <script src="https://k2.run/readability_bash.js"></script>
 ## <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism-okaidia.min.css" rel="stylesheet" />
 ## <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-core.min.js" data-manual></script>
 ## <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-bash.min.js"></script>
@@ -11,7 +11,7 @@
 
 # Koon's personal remote shell.
 #
-: curl koon.dev | bash
+: curl k2.run | bash
 #
 
 : ==========================================
@@ -24,7 +24,7 @@
 # For example, passing an argument called arg1 set to true and one called arg2 set
 # to false would look like this.
 # TODO: IDK FIX THIS
-: curl koon.dev | arg1=true arg2=false bash
+: curl k2.run | arg1=true arg2=false bash
 #
 # These arguments are optional, but be aware that explicitly setting them will help
 # ensure consistent behavior if / when defaults are changed.
@@ -91,9 +91,9 @@ install ()
 
 
 # Move the shell command to the local binaries.
-curl -sL koon.dev > /usr/local/bin/koon
+curl -sL k2.run > /usr/local/bin/koon
 # Add the update logic
-sed -i '' 's/# UPDATE_CHECK/\necho Checking for updates...\n\ncurl koon.dev -sL > \/tmp\/newestCLI\n\nif !(cmp -s "\/tmp\/newestCLI" "\/usr\/local\/bin\/koon"); then\nprintf ${BLUE}Updating to latest version... $RESET\ninstall\nfi\n\nsleep 10\n\n/g' /usr/local/bin/koon
+sed -i '' 's/# UPDATE_CHECK/\necho Checking for updates...\n\ncurl k2.run -sL > \/tmp\/newestCLI\n\nif !(cmp -s "\/tmp\/newestCLI" "\/usr\/local\/bin\/koon"); then\nprintf ${BLUE}Updating to latest version... $RESET\ninstall\nfi\n\nsleep 10\n\n/g' /usr/local/bin/koon
 # Make the script executible
 chmod +x /usr/local/bin/koon
 
