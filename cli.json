@@ -2,7 +2,7 @@
     "$schema": "https://raw.githubusercontent.com/k2on/remote-cli/main/schema.json",
     "title": "KOONTIL",
     "description": "Koon's personal remote shell.",
-    "uri": "koon.dev",
+    "uri": "k2.run",
     "menus": {
         "main": {
             "splash": {
