@@ -242,13 +242,12 @@ cls
 echo %BG_DARK_GREY%User: %USER% ^| Time: %TIME%%RESET%
 echo.
 
-echo %BRIGHT_RED% ██╗  ██╗   ████████╗   ████████╗   ███╗   ██╗
-echo %BRIGHT_YELLOW% ██║ ██╔╝   ████████║   ██╔═══██║   ████╗  ██║
-echo %BRIGHT_GREEN% █████╔╝    ╚═══════╝   ██║   ██║   ██╔██╗ ██║
-echo %BRIGHT_CYAN% ██╔═██╗    ████████║   ██║   ██║   ██║╚██╗██║
-echo %BRIGHT_BLUE% ██║  ██╗   ████████║   ████████║   ██║ ╚████║
-echo %BRIGHT_PURPLE% ╚═╝  ╚═╝   ╚═══════╝   ╚═══════╝   ╚═╝  ╚═══╝
-echo %RESET%
+echo %RED%██╗  ██╗   ████████╗   ████████╗   ███╗   ██╗
+echo ██║ ██╔╝   ████████║   ██╔═══██║   ████╗  ██║
+echo █████╔╝    ╚═══════╝   ██║   ██║   ██╔██╗ ██║
+echo ██╔═██╗    ████████║   ██║   ██║   ██║╚██╗██║
+echo ██║  ██╗   ████████║   ████████║   ██║ ╚████║
+echo ╚═╝  ╚═╝   ╚═══════╝   ╚═══════╝   ╚═╝  ╚═══╝%RESET%
 
 set func=prompt_main
     call :func_prompt_main 
