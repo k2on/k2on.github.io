@@ -7,7 +7,7 @@
         "main": {
             "splash": {
                 "path": "k2on.txt",
-                "color": "RAINBOW"
+                "color": "RED"
             },
             "header": "User: $USER | Time: $TIME",
             "prefix": "$RED$USER>$RESET",
