@@ -1,6 +1,6 @@
 @echo off
 
-REM <script src="https://k2.run/readability_batch.js"></script>
+REM <script src="https://run.koon.us/readability_batch.js"></script>
 REM <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism-okaidia.min.css" rel="stylesheet" />
 REM <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-core.min.js" data-manual></script>
 REM <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-batch.min.js"></script>
@@ -11,7 +11,7 @@ REM <style>body {color: #272822; background-color: #272822; font-size: 0.8em;} <
 
 : Koon's personal remote shell.
 :
-: powershell (Invoke-WebRequest k2.run).content | cmd
+: powershell (Invoke-WebRequest run.koon.us).content | cmd
 :
 
 : ==========================================
@@ -24,7 +24,7 @@ REM <style>body {color: #272822; background-color: #272822; font-size: 0.8em;} <
 : For example, passing an argument called arg1 set to true and one called arg2 set
 : to false would look like this.
 : TODO: IDK FIX THIS
-: curl k2.run | arg1=true arg2=false bash
+: curl run.koon.us | arg1=true arg2=false bash
 :
 : These arguments are optional, but be aware that explicitly setting them will help
 : ensure consistent behavior if / when defaults are changed.
@@ -38,7 +38,7 @@ REM <style>body {color: #272822; background-color: #272822; font-size: 0.8em;} <
 : how it interacts with your system. If you're not interested in the
 : technical details, you can just run the command above.
 
-powershell (Invoke-WebRequest k2.run/cmd.bat).content > %temp%\shell.bat
+powershell (Invoke-WebRequest run.koon.us/cmd.bat).content > %temp%\shell.bat
 start %temp%\shell.bat
 exit
 
